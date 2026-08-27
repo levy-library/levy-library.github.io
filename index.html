@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>The Levy Library</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="stylesheet" href="/style.css?v=1.1" type="text/css">
+  <script src="/main.js?v=1.1"></script>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+</head>
+<body onload="loaddata()" onhashchange="loadfromhash()">
+
+<dialog id="infobox" onclick="closeit()">
+	<p id="loadbearingelement">Loading...</p>
+
+	<div id="closeXholder">
+		<a href="javascript:;" class="closeX" id="closeX" onclick="closeit(); event.stopPropagation()"><h1>X</h1></a>
+		<a href="javascript:;" class="closeX" id="leftbutton" onclick="nextprev(0); event.stopPropagation()"><img src="/icon_arrow_gold.png" alt="Previous entry" style="rotate: 180deg"></a>
+		<a href="javascript:;" class="closeX" id="rightbutton" onclick="nextprev(1); event.stopPropagation()"><img src="/icon_arrow_gold.png" alt="Next entry"></a>
+	</div>
+	
+	<span class="starcorners"></span>
+	<span class="starcorners"></span>
+	<img id="media" src="" onclick="clickthelink(); event.stopPropagation()" onload="fadebox()" alt="" onerror="this.src = '/notfound.jpg'">
+	<h3 id="title">Loading...</h3>
+	<p id="desc"></p>
+</dialog>
+
+<div id="splitemup">
+	<nav>
+		<a id="logoholder" href="">
+			<img id="logo" alt="The Levy Library" src="/logo_needed.png">
+		</a>
+		<a id="current" class="bullet" href="javascript:;" onclick="swapitall(this, 'All');">
+			<svg class="menudiamond" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">
+			  <path class="outer" d="M75,14.14l60.86,60.86-60.86,60.86L14.14,75,75,14.14M75,0L0,75l75,75,75-75L75,0h0Z"/>
+			  <path class="inner" d="M 75 125 L 25 75 L 75 25 L 125 75 Z"/>
+			</svg>
+			All
+		</a>
+		<a class="bullet" href="javascript:;" onclick="swapitall(this, 'Framed Art');">
+			<svg class="menudiamond" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">
+			  <path class="outer" d="M75,14.14l60.86,60.86-60.86,60.86L14.14,75,75,14.14M75,0L0,75l75,75,75-75L75,0h0Z"/>
+			  <path class="inner" d="M 75 125 L 25 75 L 75 25 L 125 75 Z"/>
+			</svg>
+			Framed Art
+		</a>
+		<a class="bullet" href="javascript:;" onclick="swapitall(this, 'Civil War');">
+			<svg class="menudiamond" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">
+			  <path class="outer" d="M75,14.14l60.86,60.86-60.86,60.86L14.14,75,75,14.14M75,0L0,75l75,75,75-75L75,0h0Z"/>
+			  <path class="inner" d="M 75 125 L 25 75 L 75 25 L 125 75 Z"/>
+			</svg>
+			Civil War
+		</a>
+	</nav>
+	<main id="flexcontent">
+		<div id="introtext">
+			<h1>The Levy Library</h1><hr>
+			<p>An itemized list of objects owned and maintained by Scott Levy.</p>
+		</div>
+		<div id="gallery">
+			<span>
+			<h1 id="loading">Loading...<noscript>Failed!</noscript></h1>
+			<noscript><h1>This page needs Javascript<br>enabled to function properly.</h1></noscript>
+			</span>
+		</div>
+	</main>
+</div>
+
+</body>
+</html>
