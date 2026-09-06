@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Poiret+One&family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&family=Zen+Antique&display=swap');
 
 body:has(#current[onclick*='Framed Art']) .itemtile:not(.Framed.Art),
 body:has(#current[onclick*='Civil War']) .itemtile:not(.Civil.War),
 body:has(#current[onclick*='Cast Iron']) .itemtile:not(.Cast.Iron)
 { display: none; }
 
-h1, h3, a, p { font-family: "DM Serif Display", serif; color: #e7e1d5; font-weight: normal; text-decoration: none; }
+h1, h3, a, p { font-family: 'Zen Antique', serif; color: #e7e1d5; font-weight: normal; text-decoration: none; }
 
 #logoholder {
 	filter: drop-shadow(0 4px 15px #0006);
@@ -64,7 +64,7 @@ body {
 	transform-origin: top;
 	margin-top: -6px;
 	box-shadow: 0 0 3px #0009;
-	padding: 3px 7px;
+	padding: 3px 7px 5px;
 	min-width: 70px;
 }
 
@@ -117,11 +117,8 @@ body {
 	width: fit-content;
 	margin: auto;
 }
-/*#media:has(~ #title > #outlink) {
-	padding-top: 22px;
-	max-height: calc(90dvh - 22px);
-	cursor: pointer;
-}*/
+
+#infobox:has(#outlink) #media { cursor: pointer; }
 
 #date {
 	position: absolute;
@@ -129,6 +126,16 @@ body {
 	right: 0;
 	margin: 0;
 	font-family: "Poiret One", serif;
+	color: white;
+}
+
+#bought {
+	position: absolute;
+	bottom: -40px;
+	left: 0;
+	margin: 0;
+	font-family: "Poiret One", serif;
+	color: white;
 }
 
 #title {
@@ -137,10 +144,11 @@ body {
 	text-wrap: pretty;
 	width: fit-content;
 	margin: 0 auto 20px;
+	text-align: center;
 	font-size: 24px;
 	text-shadow: 0 0 5px #e1ba55;
-	padding: 13px 70px 0px;
-	text-align: center;
+	padding: 13px 70px 6px;
+	line-height: 28px;
 	
 	border-image-source: url(titleborder.png);
 	border-image-slice: 35 55 0 55;
@@ -163,50 +171,21 @@ body {
 	display: block;
 	background: url(priceplaque.jpg);
 	background-size: 100% 100%;
-	padding: 5px;
+	padding: 5px 5px 8px;
 	color: #5d4500;
 	width: fit-content;
 	min-width: 86px;
 	text-align: center;
 	margin: 3px auto 0;
-	font-size: 18px;
+	font-size: 17px;
+	line-height: 17px;
 	z-index: 2;
 	position: relative;
 	box-shadow: 0 0 5px #0009;
-	font-family: 'Times New Roman', serif;
+	/*font-family: 'Times New Roman', serif;*/
 }
 
-#desc { text-align: center; font-family: "Poiret One", serif; }
-
-/*.starcorners {
-	display: block;
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	filter: drop-shadow(0 0 5px #e5a961);
-	pointer-events: none;
-	z-index: 2;
-}
-
-.starcorners:before, .starcorners:after {
-	content: "";
-	display: block;
-	position: absolute;
-	top: -12px;
-	right: -12px;
-	width: 35px;
-	height: 35px;
-	background-size: contain;
-	background-image: url(GI_cornerstar.png);
-}
-.starcorners:after {
-	transform: scaleX(-1);
-	right: unset;
-	left: -12px;
-}
-.starcorners + .starcorners {
-	rotate: 180deg;
-}*/
+#desc { text-align: center; font-family: "Poiret One", serif; color: white; }
 
 /* INFOBOX STUFF BELOW: */
 

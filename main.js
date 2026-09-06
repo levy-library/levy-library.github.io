@@ -75,13 +75,14 @@ function loadfromhash() { //Performs actions based around the number of the hash
 		
 		if (data[currentrow].Extra) {
 			boxtitle = `&ZeroWidthSpace;<a id="outlink" href="` + data[currentrow].Extra + `" target="_blank">` + boxtitle + ` <img src="outlink.svg"></a>`;
-			goclick = ` Click this item's title for more information.`;
+			goclick = ` -- Click this item for more information.`;
 		}
 		
 		document.getElementById("title").innerHTML = boxtitle;
 		document.getElementById("bigprice").innerHTML = data[currentrow].MarketPrice;
-		document.getElementById("desc").innerHTML = data[currentrow].Info + goclick;
+		document.getElementById("bought").innerHTML = "Bought at " + data[currentrow].PurchasePrice;
 		document.getElementById("date").innerHTML = data[currentrow].Date;
+		document.getElementById("desc").innerHTML = data[currentrow].Info + goclick;
 		
 		media.src = data[currentrow].URL;
 		media.alt = data[currentrow].Title;
@@ -204,3 +205,9 @@ function getfromsearch() {
 		//}
 	}
 }*/
+
+function clickthelink() {
+	if (document.querySelector("#outlink[href]")) {
+		document.querySelector("#outlink").click();
+	}
+}
