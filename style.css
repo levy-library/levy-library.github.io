@@ -1,12 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&family=DM+Serif+Display:ital@0;1&display=swap');
+
 body:has(#current[onclick*='Framed Art']) .itemtile:not(.Framed.Art),
-body:has(#current[onclick*='Civil War']) .itemtile:not(.Civil.War) { display: none; }
+body:has(#current[onclick*='Civil War']) .itemtile:not(.Civil.War),
+body:has(#current[onclick*='Cast Iron']) .itemtile:not(.Cast.Iron)
+{ display: none; }
 
-@font-face {
-	font-family: HYWenHei;
-	src: url(./fonts/zh-cn.ttf);
-}
-
-a, p, h1, h3 { font-family: HYWenHei, serif; color: #e7e1d5; font-weight: normal; text-decoration: none; }
+h1, h3, a, p { font-family: "DM Serif Display", serif; color: #e7e1d5; font-weight: normal; text-decoration: none; }
 
 #logoholder {
 	filter: drop-shadow(0 4px 15px #0006);
@@ -45,7 +44,7 @@ body {
 	height: 280px;
 	background: linear-gradient(transparent 49%, #fff9e0 51%);
 	border-radius: 5px;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	box-shadow: 0 0 12px 2px #0009;
 	position: relative;
 }
@@ -56,13 +55,24 @@ body {
 	border: none;
 	object-fit: cover;
 	background: #222;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+.itemtile .price:not(:empty) {
+	transform: scale(.8);
+	transform-origin: top;
+	margin-top: -6px;
+	box-shadow: 0 0 3px #0009;
+	padding: 3px 7px;
+	min-width: 70px;
 }
 
 .childtext {
 	width: 100%;
 	margin: 0;
 	text-align: center;
-	color: #3d476d;
+	color: #5c4320;
 	height: 45px;
 	display: flex;
 	justify-content: center;
@@ -84,46 +94,89 @@ body {
 	overflow: visible;
 	outline: none;
 }
-#infobox::backdrop { background: #0007; }
+#infobox::backdrop { background: #130f0fbb; }
 
 #infobox > *:not(#closeXholder) { transition: opacity .5s; }
 #infobox:not([data-loaded]) > *:not(#closeXholder) { opacity: 0; }
 
+#mediaholder {
+	border-image-source: url(border.png);
+	border-image-slice: 38;
+	border-image-width: 22px;
+	border-image-outset: 22px;
+	position: relative;
+}
+
 #media {
-	max-width: 100%;
-	max-height: 90dvh;
+	display: block;
+	max-width: 50vw;
+	max-height: 80dvh;
 	min-width: 200px;
 	min-height: 200px;
-	border-radius: 2px;
 	background: #0009;
-	filter: saturate(1.15);
-	box-shadow: 0 0 5px #99330066;
+	width: fit-content;
+	margin: auto;
 }
-#media:has(~ #title > #outlink) {
+/*#media:has(~ #title > #outlink) {
 	padding-top: 22px;
 	max-height: calc(90dvh - 22px);
 	cursor: pointer;
+}*/
+
+#date {
+	position: absolute;
+	bottom: -40px;
+	right: 0;
+	margin: 0;
+	font-family: "Poiret One", serif;
 }
 
 #title {
-	position: absolute;
-	color: black;
+	color: #ede7ac;
 	font-style: italic;
 	text-wrap: pretty;
-	width: calc(100% - 35px);
-	margin: 0;
-	top: 0;
-	left: 0;
-	background: linear-gradient(150deg, #FFEE 25%, transparent 90%);
+	width: fit-content;
+	margin: 0 auto 20px;
 	font-size: 24px;
-	text-shadow: 0 0 5px white;
-	padding: 1px 15px 1px 20px;
+	text-shadow: 0 0 5px #e1ba55;
+	padding: 13px 70px 0px;
+	text-align: center;
+	
+	border-image-source: url(titleborder.png);
+	border-image-slice: 35 55 0 55;
+	border-image-width: 40px 60px 0px 60px;
+	border-image-repeat: stretch;
 }
 #outlink {
-	color: #0049ff;
+	color: white;
 	text-decoration: underline;
 	text-underline-offset: 2px;
 }
+#outlink > img {
+	display: inline-block;
+	height: 20px;
+	filter: invert(1);
+	transform: translateY(4px);
+}
+
+.price:not(:empty) {
+	display: block;
+	background: url(priceplaque.jpg);
+	background-size: 100% 100%;
+	padding: 5px;
+	color: #5d4500;
+	width: fit-content;
+	min-width: 86px;
+	text-align: center;
+	margin: 3px auto 0;
+	font-size: 18px;
+	z-index: 2;
+	position: relative;
+	box-shadow: 0 0 5px #0009;
+	font-family: 'Times New Roman', serif;
+}
+
+#desc { text-align: center; font-family: "Poiret One", serif; }
 
 /*.starcorners {
 	display: block;
@@ -228,6 +281,8 @@ body {
 #closeX > h1 {
 	color: #fdf1b3;
 	text-shadow: 0 0 3px #e5a961;
+	font-weight: bold;
+	font-family: sans-serif;
 }
 
 #splitemup {

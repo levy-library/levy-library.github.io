@@ -15,15 +15,16 @@
 	<p id="loadbearingelement">Loading...</p>
 
 	<div id="closeXholder">
-		<a href="javascript:;" class="closeX" id="closeX" onclick="closeit(); event.stopPropagation()"><h1>X</h1></a>
+		<a href="javascript:;" class="closeX" id="closeX" onclick="closeit(); event.stopPropagation()"><h1>✕</h1></a>
 		<a href="javascript:;" class="closeX" id="leftbutton" onclick="nextprev(0); event.stopPropagation()"><img src="/icon_arrow_gold.png" alt="Previous entry" style="rotate: 180deg"></a>
 		<a href="javascript:;" class="closeX" id="rightbutton" onclick="nextprev(1); event.stopPropagation()"><img src="/icon_arrow_gold.png" alt="Next entry"></a>
 	</div>
 	
-	<!--span class="starcorners"></span>
-	<span class="starcorners"></span-->
-	<img id="media" src="" onclick="clickthelink(); event.stopPropagation()" onload="fadebox()" alt="" onerror="this.src = '/notfound.jpg'">
 	<h3 id="title">Loading...</h3>
+	<div id="mediaholder">
+		<img id="media" src="" onclick="clickthelink(); event.stopPropagation()" onload="fadebox()" alt="" onerror="this.src = '/notfound.jpg'">
+	</div>
+	<p id="bigprice" class="price"></p>
 	<p id="desc"></p>
 </dialog>
 
@@ -52,6 +53,13 @@
 			  <path class="inner" d="M 75 125 L 25 75 L 75 25 L 125 75 Z"/>
 			</svg>
 			Civil War
+		</a>
+		<a class="bullet" href="javascript:;" onclick="swapitall(this, 'Cast Iron');">
+			<svg class="menudiamond" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150">
+			  <path class="outer" d="M75,14.14l60.86,60.86-60.86,60.86L14.14,75,75,14.14M75,0L0,75l75,75,75-75L75,0h0Z"/>
+			  <path class="inner" d="M 75 125 L 25 75 L 75 25 L 125 75 Z"/>
+			</svg>
+			Cast Iron
 		</a>
 	</nav>
 	<main id="flexcontent">

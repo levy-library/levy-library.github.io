@@ -49,9 +49,14 @@ function loadfromhash() { //Performs actions based around the number of the hash
 			textG.setAttribute("class", "childtext"); //Class the text
 			textG.innerHTML = (data[i].Title);
 			
+			let priceG = document.createElement("p"); //Create price plaque
+			priceG.setAttribute("class", "price"); //Class the price plaque
+			priceG.innerHTML = (data[i].MarketPrice);
+			
 			gallery.appendChild(newdiv);
 			newdiv.appendChild(imgG);
 			newdiv.appendChild(textG);
+			newdiv.appendChild(priceG);
 		}
 		filled = 1;
 	}
@@ -66,13 +71,17 @@ function loadfromhash() { //Performs actions based around the number of the hash
 		document.querySelector("#infobox").removeAttribute("data-loaded");
 		
 		let boxtitle = data[currentrow].Title;
+		let goclick = ``;
 		
 		if (data[currentrow].Extra) {
-			boxtitle = `&ZeroWidthSpace;<a id="outlink" href="` + data[currentrow].Extra + `" target="_blank">` + boxtitle + `</a>`;
+			boxtitle = `&ZeroWidthSpace;<a id="outlink" href="` + data[currentrow].Extra + `" target="_blank">` + boxtitle + ` <img src="outlink.svg"></a>`;
+			goclick = ` Click this item's title for more information.`;
 		}
 		
 		document.getElementById("title").innerHTML = boxtitle;
-		document.getElementById("desc").innerHTML = data[currentrow].Info;
+		document.getElementById("bigprice").innerHTML = data[currentrow].MarketPrice;
+		document.getElementById("desc").innerHTML = data[currentrow].Info + goclick;
+		document.getElementById("date").innerHTML = data[currentrow].Date;
 		
 		media.src = data[currentrow].URL;
 		media.alt = data[currentrow].Title;
