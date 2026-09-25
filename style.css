@@ -8,9 +8,9 @@ body:has(#current[onclick*='Cast Iron']) .itemtile:not(.Cast.Iron)
 h1, h3, a, p { font-family: 'Zen Antique', serif; color: #e7e1d5; font-weight: normal; text-decoration: none; }
 
 #logoholder {
-	filter: drop-shadow(0 4px 15px #0006);
+	filter: drop-shadow(-1px 2px 7px #0006);
 	max-width: 238px;
-	margin-left: -40px;
+	margin: 0 -20px;
 }
 
 #logo {
@@ -188,7 +188,7 @@ body {
 	/*font-family: 'Times New Roman', serif;*/
 }
 
-#desc { text-align: center; font-family: "Poiret One", serif; color: white; }
+#desc { text-align: center; font-family: "Poiret One", serif; color: white; position: relative; margin-top: 21px; }
 
 /* INFOBOX STUFF BELOW: */
 
@@ -241,9 +241,10 @@ body {
 	height: 100%;
 	filter: drop-shadow(0 0 5px #e5a961);
 	z-index: 1;
+	pointer-events: none;
 }
 
-#closeXholder > a { transition: scale .35s; padding: 10px; }
+#closeXholder > a { transition: scale .35s; padding: 10px; pointer-events: all; }
 #closeXholder > a:hover, #closeholder > a:focus { scale: 1.15; }
 
 #closeX {

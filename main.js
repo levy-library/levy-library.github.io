@@ -107,20 +107,39 @@ document.addEventListener('keydown', function(event) {
 });
 
 function nextprev(direction) {
-	let gallery = document.getElementById("gallery");
-	
-	// Looking right:
-	if (direction) {
-		currentrow++;
-		if (currentrow >= data.length) { currentrow = 0; }
-		makehash(data[currentrow].Permahash);
+	//If all items are shown:
+	if (document.querySelector(".bullet").id == "current") {
+		//Looking right:
+		if (direction) {
+			currentrow++;
+			if (currentrow >= data.length) { currentrow = 0; }
+		}
+		//Looking left:
+		else {
+			currentrow--;
+			if (currentrow < 0) { currentrow = data.length - 1; }
+		}
 	}
-	// Looking left:
+	//If filtering which items are shown:
 	else {
-		currentrow--;
-		if (currentrow < 0) { currentrow = data.length - 1; }
-		makehash(data[currentrow].Permahash);
+		//Get the index number of each visible item:
+		let numlist = [];
+		document.querySelectorAll(".itemtile").forEach((e, i) => {
+			//Add to numlist only if the item is rendered:
+			if (e.checkVisibility()) { numlist.push(i); }
+		});
+		
+		//Looking right:
+		if (direction) {
+			currentrow = numlist[numlist.indexOf(currentrow) + 1] || numlist[0]; //If not found, jumps to 0.
+		}
+		//Looking left:
+		else {
+			currentrow = numlist[numlist.indexOf(currentrow) - 1] || numlist[numlist.length - 1]; //If not found, jumps to the end.
+		}
 	}
+	//Set the current view based on the above calculations:
+	makehash(data[currentrow].Permahash);
 }
 
 function moveit() { document.getElementById('infobox').showModal(); }
